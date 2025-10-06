@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 # Header aplikasi
-st.title("🎵 Peta Angklung Indonesia")
+st.title("Peta Angklung Indonesia")
 st.markdown("---")
 
 # Fungsi untuk membaca CSV
@@ -29,22 +29,22 @@ def read_csv_data(filename):
 
 # Sidebar
 with st.sidebar:
-    st.header("🎋 Tentang Angklung")
+    st.header("Tentang Angklung")
     st.markdown("""
     **Angklung** adalah alat musik tradisional Indonesia yang terbuat dari bambu. 
     Alat musik ini berasal dari Jawa Barat dan telah diakui oleh UNESCO sebagai 
     Warisan Budaya Takbenda Manusia.
     
     ### Fitur Peta:
-    - 📍 Lokasi-lokasi angklung di Indonesia
-    - 🗺️ Peta interaktif dengan Leaflet
-    - 📊 Data dalam format CSV
+    - Lokasi-lokasi angklung di Indonesia
+    - Peta interaktif dengan Leaflet
+    - Data dalam format CSV
     """)
     
     # Load dan tampilkan info data
     data = read_csv_data("angklung.csv")
     if data:
-        st.subheader("📊 Data Angklung")
+        st.subheader("Data Angklung")
         st.write(f"Total lokasi: {len(data)}")
         
         # Download button
@@ -52,7 +52,7 @@ with st.sidebar:
             with open("angklung.csv", 'r', encoding='utf-8') as file:
                 csv_content = file.read()
                 st.download_button(
-                    label="📥 Download Data CSV",
+                    label="Download Data CSV",
                     data=csv_content,
                     file_name="angklung_data.csv",
                     mime="text/csv"
@@ -64,7 +64,7 @@ with st.sidebar:
 col1, col2 = st.columns([3, 1])
 
 with col1:
-    st.subheader("🗺️ Peta Interaktif Angklung Indonesia")
+    st.subheader("Peta Interaktif Angklung Indonesia")
     
     # Baca dan tampilkan HTML file
     html_file_path = "peta_angklung_final.html"
@@ -78,17 +78,17 @@ with col1:
             # Tampilkan HTML dalam Streamlit
             components.html(html_content, height=600, scrolling=True)
             
-            st.success("✅ Peta berhasil dimuat!")
+            st.success("Peta berhasil dimuat!")
             
         except Exception as e:
-            st.error(f"❌ Error loading HTML file: {e}")
+            st.error(f"Error loading HTML file: {e}")
         
     else:
-        st.error("❌ File peta_angklung_final.html tidak ditemukan!")
-        st.info("📁 Pastikan file HTML ada di folder yang sama dengan aplikasi ini.")
+        st.error("File peta_angklung_final.html tidak ditemukan!")
+        st.info("Pastikan file HTML ada di folder yang sama dengan aplikasi ini.")
 
 with col2:
-    st.subheader("📋 Informasi")
+    st.subheader("Informasi")
     
     data = read_csv_data("angklung.csv")
     
@@ -96,7 +96,7 @@ with col2:
         st.metric("Total Lokasi", len(data))
         
         # Tampilkan preview data
-        st.subheader("👀 Preview Data")
+        st.subheader("Preview Data")
         
         # Tampilkan 5 data pertama
         preview_data = data[:5] if len(data) > 5 else data
@@ -107,7 +107,7 @@ with col2:
         
         # Statistik sederhana
         if data:
-            st.subheader("📊 Statistik")
+            st.subheader("Statistik")
             
             # Hitung provinsi jika ada kolom provinsi
             provinces = {}
@@ -130,13 +130,13 @@ with col2:
                     st.write(f"• {prov}: {count} lokasi")
     
     else:
-        st.warning("⚠️ File angklung.csv tidak ditemukan atau kosong!")
+        st.warning("File angklung.csv tidak ditemukan atau kosong!")
 
 # Footer
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center'>
-    <p>🇮🇩 <b>Dibuat untuk melestarikan budaya Indonesia</b> 🇮🇩</p>
+    <p><b>Dibuat untuk melestarikan budaya Indonesia</b></p>
     <p>Data angklung dari berbagai sumber | Peta menggunakan Leaflet.js</p>
 </div>
 """, unsafe_allow_html=True)
