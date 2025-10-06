@@ -139,7 +139,8 @@ st.markdown("""
     <p><b>Dibuat untuk melestarikan budaya Indonesia</b></p>
     <p>Data angklung dari berbagai sumber | Peta menggunakan Leaflet.js</p>
 </div>
-""", unsafe_allow_html=True)    data = read_csv_data("angklung.csv")
+""", unsafe_allow_html=True)    
+    data = read_csv_data("angklung.csv")
     if data:
         st.subheader("Data Angklung")
         st.write(f"Total lokasi: {len(data)}")
@@ -238,3 +239,4 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
